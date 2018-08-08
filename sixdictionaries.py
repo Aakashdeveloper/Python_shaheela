@@ -29,3 +29,14 @@ SyntaxError: can't delete function call
 >>> revenu
 {'apple': '$20000', 'google': '$30000'}
 >>> 
+
+
+
+###############
+student = {
+  "name" : "John",
+  "student_id": 123,
+  "feedback": None
+}
+
+student["lastName"] = "macij"

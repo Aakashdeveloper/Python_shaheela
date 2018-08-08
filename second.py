@@ -19,6 +19,33 @@ elif age == 20:
 else:
     print(" you can not vote")
 
+
+number = 5
+if number:
+    print("number is 5")
+
+number = 6
+if number != 5:
+    print("this will work")
+
+if name:
+    print("name is there")
+
+subject = "python"
+if subject:
+    print("subject is there")
+
+aliens = None
+if aliens:
+    print("hiiii")
+
+aliens = False
+if not aliens:
+    print("okkkkk")
+
+
+
+
 list==> can duplicate member & can override
 tuple==> cannot override but can have duplicate value
 set==> No duplicate memebers & unindexed

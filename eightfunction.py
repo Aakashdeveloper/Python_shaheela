@@ -7,11 +7,14 @@ def aakash(name):
 def addtion(a,b):
     return a+b
 
-def addition(a,b):
+def addition1(a,b):
     if a == 1:
         return a+b
     else:
         return a-b
+
+print(addition1(8,9))       
+
 
 #you have make function
 #that will take input from the user

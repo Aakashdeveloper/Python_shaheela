@@ -12,7 +12,7 @@ def print_students_titlecase():
         students_titlecase = student["name"].title()
     print(students_titlecase)
 
-def add_student(name, student_id):
+def add_student(name, student_id=34):
     student = {"name":name, "student_id":student_id}
     students.append(student)
 
@@ -35,6 +35,6 @@ def with_kwargs(name, **kwargs):
 
 #print("this is sout from get", students_list)
 
-with_args("shaheela","loves python", 57, None, "hi")
+#with_args("shaheela","loves python", 57, None, "hi")
 
-with_kwargs("aakash", city="london", country="UK")
+#with_kwargs("aakash", city="london", country="UK")

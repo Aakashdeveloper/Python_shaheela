@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+    <div>
+        <a  href="/books/">Books</a>
+         <p>
+            This is a test.
+         </p>
+         
+         <ul>
+            {% for book in books %}
+                <li>{{ book.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

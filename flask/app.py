@@ -14,10 +14,9 @@ books = [
         'isbn': 98765465544
     }
 ]
-
 @app.route('/')
 def welcome():
-    return " Welcome to books store"
+    return "welcome to book store"
 
 @app.route('/books')
 def hi_flask():

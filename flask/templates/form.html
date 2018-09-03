@@ -37,12 +37,11 @@
                     </div>
                   </nav>
         <div>
-            <h1>THIS IS About Page</h1>
-            <ul>
-                {% for cars in online_users %}
-                <li>{{ cars.brand}}</li>
-                {% endfor %}
-            </ul>
+                <form action="{{ url_for('handle_data') }}" method="post">
+                        
+                        <input type="text" name="projectFilepath">
+                        <input type="submit">
+                </form>
         </div>
     </body>
 </html>

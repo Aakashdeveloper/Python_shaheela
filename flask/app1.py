@@ -18,24 +18,42 @@ books = [
     }
 ]
 @app.route('/')
-def static_page():
-    return "welcome to book store"
+def home_page():
+    return render_template('home.html')
 
-@app.route("/index/")
-def render_static():
-    return render_template('index.html',books=books)
+@app.route('/about/')
+def about_page():
+    online_users = mongo.db.first.find({})
+    return render_template('about.html', online_users=online_users)
 
 @app.route("/data/")
-def home_page():
+def data_page():
     online_users = mongo.db.cars.find({})
     return render_template("data.html",
         online_users=online_users)
+
+@app.route('/forms/')
+def form_page():
+    return render_template('form.html')
 
 @app.route('/books/')
 def hi_flask():
     users = [ "Frank", "Steve", "Alice", "Bruce" ]
     return render_template('books.html',users=users)
 
+@app.route('/handle_data', methods=['POST'])
+def handle_data():
+    projectpath = request.form['projectFilepath']
+    mongo.db.first.insert({"name":projectpath})
+    return render_template('about.html')
+
+@app.route('/update_data', methods=['POST'])
+def update_data():
+    oldData = request.form['hiddenData']
+    newData = request.form['updateData']
+    print(">>>>>"+ newData)
+    mongo.db.first.update({"name":oldData},{"$set":{"name":newData}}, upsert=False)
+    return render_template('about.html')
 
 
 app.run(port=3300)

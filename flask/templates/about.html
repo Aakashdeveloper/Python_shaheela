@@ -36,60 +36,64 @@
                       </div>
                     </div>
                   </nav>
-        <div>
+
+        <div class="container">
             <h1>THIS IS About Page</h1>
-            
-            <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Operations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            {% for user in online_users %}
-                        <tr>
-                            <td>{{user.name}}</td>
-                            <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{user.name}}">
-                                Show Detail
-                            </button>
-                            <!--button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#'+phone.id">
-                                Open modal
-                              </button-->
-                            
-                              <!-- The Modal -->
-                              <div class="modal fade" id="{{user.name}}">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                  
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                      <h4 class="modal-title">abc</h4>
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                            <form action="{{ url_for('update_data') }}" method="post">
-                                                    <input type="text" name="hiddenData" value="{{user.name}}" hidden>
-                                                    <input type="text" name="updateData" value="{{user.name}}">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Images</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in online_users %}
+                    <tr>
+                        <td>{{user.fname}}</td>
+                        <td>{{user.phone}}</td>
+                        <td><img src="{{user.image}}" style="height:150px;width:150px"/></td>
+                        <td>
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{user.phone}}">
+                                    EDIT
+                                </button>
+                                <button type="button" class="btn btn-info btn-lg" >
+                                    <a href="/delete/{{user.phone}}">
+                                      DELETE
+                                    </a>
+                                </button>
+
+                                <!-- Modal -->
+                                <div id="{{user.phone}}" class="modal fade" role="dialog">
+                                  <div class="modal-dialog">
+                                
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Update Records</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                            <form action="{{ url_for('update_data')}}" method="post">
+                                                    <input type="text" name="firstName" value="{{user.fname}}" placeholder="Your Name">
+                                                    <input type="text" name="phone" value="{{user.phone}}" placeholder="Your Number">
+                                                    <input type="text" name="old_phone" value="{{user.phone}}" placeholder="Your Number" hidden>
                                                     <input type="submit">
                                             </form>
+                                      </div>
+                                      <div class="modal-footer">
+                                        
+                                      </div>
                                     </div>
-                                    
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                      
-                                    </div>
-                                    
+                                
                                   </div>
                                 </div>
-                              </div>
-                           </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

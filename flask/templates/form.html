@@ -36,12 +36,13 @@
                       </div>
                     </div>
                   </nav>
-        <div>
-                <form action="{{ url_for('handle_data') }}" method="post">
-                        
-                        <input type="text" name="projectFilepath">
-                        <input type="submit">
-                </form>
+        <div class="container">
+           <form action="{{ url_for('input_data') }}" method="post">
+                <input type="text" name="firstName" placeholder="Your Name">
+                <input type="text" name="phone" placeholder="Your Number">
+                <input type="text" name="image" placeholder="Enter URL">
+                <input type="submit">
+        </form>
         </div>
     </body>
 </html>

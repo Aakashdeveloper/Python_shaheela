@@ -18,8 +18,8 @@ books = [
 def welcome():
     return "welcome to book store"
 
-@app.route('/books')
-def hi_flask():
+@app.route('/books/')
+def books_page():
     return jsonify({'books': books})
 
 #POST /books
@@ -29,7 +29,7 @@ def hi_flask():
 #        'isbn': 78900765478
 #    }
 
-@app.route('/books', methods=['POST'])
+@app.route('/bookss', methods=['POST'])
 def add_book():
     pass
 
